@@ -1,5 +1,6 @@
 import React from 'react';
+import './button.css';
 
-export default function Button(props, ...rest) {
-  return <button {...rest}>{props}</button>;
+export default function Button({ name }) {
+  return <button>{name}</button>;
 }
