@@ -4,6 +4,9 @@ import Data from '../data/Data';
 import Button from '../components/button/Button';
 import Image from '../components/images/index';
 import TagP from '../components/tagP/index';
+import TrackList from '../components/track/index';
+import Datas from '../data/ListMusic';
+import './createPlaylist.css';
 
 export default function CreatePlaylist() {
   let style = 'details-title';
@@ -18,6 +21,18 @@ export default function CreatePlaylist() {
           <TagP value={toUpper(Data.album.artists[0].name)} />
           <Button name="Search" />
         </div>
+      </div>
+      <div className="list-track">
+        {Datas.map((data) => {
+          // console.log(data.album.images[1].url);
+          return (
+            <TrackList
+              key={data.id}
+              image={data.album.images[1].url}
+              title={data.name}
+            />
+          );
+        })}
       </div>
     </div>
   );

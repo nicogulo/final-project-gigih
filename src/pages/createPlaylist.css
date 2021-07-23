@@ -49,3 +49,9 @@
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
   color: whitesmoke;
 }
+
+.list-track {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

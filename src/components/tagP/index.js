@@ -1,6 +1,6 @@
 import React from 'react';
-import './tagP.css';
+import style from '../tagP/tagP.css';
 
-export default function TagP(props) {
-  return <p className={props.style}>{props.value}</p>;
+export default function TagP({ value }) {
+  return <p className={style.p}>{value}</p>;
 }
