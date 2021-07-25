@@ -1,10 +1,10 @@
 import { toUpper } from 'lodash';
 import React from 'react';
 import Data from '../data/Data';
-import Button from '../components/button/Button';
-import Image from '../components/images/index';
-import TagP from '../components/tagP/index';
-import TrackList from '../components/track/index';
+import Button from '../components/button';
+import Image from '../components/images';
+import TagP from '../components/tagP';
+import TrackList from '../components/track';
 import Datas from '../data/ListMusic';
 import './createPlaylist.css';
 
@@ -23,7 +23,8 @@ export default function CreatePlaylist() {
         </div>
       </div>
       <div className="list-track">
-        {Datas.map((data) => {
+        <TrackList />
+        {/* {Datas.map((data) => {
           // console.log(data.album.images[1].url);
           return (
             <TrackList
@@ -32,7 +33,7 @@ export default function CreatePlaylist() {
               title={data.name}
             />
           );
-        })}
+        })} */}
       </div>
     </div>
   );
