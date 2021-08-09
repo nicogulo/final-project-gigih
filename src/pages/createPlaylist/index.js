@@ -11,6 +11,7 @@ import { setToken } from '../../redux/tokenSlice';
 
 import style from './createPlaylist.module.css';
 
+import { getAccessTokenFromURL } from '../../services/authSpotify';
 import {
   getProfile,
   getSearchTracks,
@@ -18,7 +19,7 @@ import {
   storeTracksToNewPlaylist,
 } from '../../services/apiSpotify';
 
-export default function CreatePlaylist({ getAccessTokenFromURL }) {
+export default function CreatePlaylist() {
   const token = useSelector((state) => state.token.value);
   const dispatch = useDispatch();
 
@@ -41,7 +42,7 @@ export default function CreatePlaylist({ getAccessTokenFromURL }) {
 
       getProfile(access_token).then((data) => setUserID(data.id));
     }
-  }, [dispatch, getAccessTokenFromURL]);
+  }, [dispatch]);
 
   const buttonHandleSearch = () => {
     if (search === '') {
