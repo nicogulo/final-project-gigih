@@ -1,21 +1,24 @@
-import './App.css';
-// import Header from './components/header/Header';
-// import Sidebar from './components/sidebar/Sidebar';
-// import CreatePlaylist from './pages/CreatePlaylist';
-// import datas from './data/ListMusic';
+import Sidebar from './components/layouts/sidebar';
+import Header from './components/layouts/header';
+
 import Search from './pages/Search';
+
+import { loginSpotify, getAccessTokenFromURL } from './functions/auth';
+
+import './App.css';
 
 function App() {
   return (
     <div className="app">
-      <Search />
-      {/* <div>
-        <Header />
-      </div>
-      <div className="body">
+      <div className="sidebar">
         <Sidebar />
-        <CreatePlaylist datas={datas} />
-      </div> */}
+      </div>
+      <div className="header">
+        <Header loginSpotify={loginSpotify} />
+      </div>
+      <div className="content">
+        <Search getAccessTokenFromURL={getAccessTokenFromURL} />
+      </div>
     </div>
   );
 }

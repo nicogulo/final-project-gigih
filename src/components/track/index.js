@@ -1,31 +1,43 @@
-import React from 'react';
-import style from '../track/style.css';
-import Image from '../images/index';
-import TagP from '../tagP/index';
+import React, { useState } from 'react';
 
-export default function Track({ image, title }) {
+import style from './track.module.css';
+
+const Track = ({ track, playlist, setPlaylist, id }) => {
+  const [isSelected, setIsSelected] = useState(false);
+  const handleButtonSelect = (e) => {
+    let uri = e.target.value;
+    setIsSelected(!isSelected);
+    if (playlist.includes(uri)) {
+      // alert("DATA SUDAH ADA");
+      let newPlaylist = playlist.filter((track) => track !== uri);
+      setPlaylist(newPlaylist);
+      console.log('NEW ARRAY TRACKS: ' + newPlaylist);
+    } else {
+      // alert("data belum ada");
+      setPlaylist([...playlist, uri]);
+    }
+  };
   return (
-    <div className={style['wrapper-list-track']}>
-      <table className={style['list-track']}>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Album</th>
-            <th>Date Added</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>How You Like That</td>
-            <td>The Album</td>
-            <td>7 Days Ago</td>
-            <td>3:00</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <td rowSpan="2">{id + 1}</td>
+        <td rowSpan="2">
+          <img src={track.album.images[2].url} alt="track" />
+        </td>
+        <td>{track.name}</td>
+        <td rowSpan="2">{track.album.type}</td>
+        <td rowSpan="2">{track.album.release_date}</td>
+        <td rowSpan="2">
+          <button onClick={handleButtonSelect} className={style['btn-select']}>
+            {isSelected ? 'Deselect' : 'Select'}
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>{track.artists[0].name}</td>
+      </tr>
+    </tbody>
   );
-}
+};
+
+export default Track;
