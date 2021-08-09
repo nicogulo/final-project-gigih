@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './header.module.css';
 
-const Header = ({ loginSpotify }) => {
+const Header = ({ loginSpotify, namePage }) => {
   const [isLogin, setIsLogin] = useState(false);
 
   const handleButtonLoginClick = (e) => {
@@ -17,7 +17,7 @@ const Header = ({ loginSpotify }) => {
   return (
     <div className={style['wrapper-header']}>
       <div className={style['page-title']}>
-        <h2>Create Playlist</h2>
+        <h2>{namePage}</h2>
       </div>
       <div className={style['menu']}>
         <button
