@@ -1,42 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import style from './track.module.css';
+import convertDuration from '../../functions/convertDuration';
 
-const Track = ({ track, playlist, setPlaylist, id }) => {
-  const [isSelected, setIsSelected] = useState(false);
+import style from './trackList.module.css';
+
+const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
   const handleButtonSelect = (e) => {
     let uri = e.target.value;
-    setIsSelected(!isSelected);
-    if (playlist.includes(uri)) {
-      // alert("DATA SUDAH ADA");
-      let newPlaylist = playlist.filter((track) => track !== uri);
-      setPlaylist(newPlaylist);
-      console.log('NEW ARRAY TRACKS: ' + newPlaylist);
+    if (selectedTracks.includes(uri)) {
+      let newPlaylist = selectedTracks.filter((track) => track !== uri);
+      setSelectedTracks(newPlaylist);
     } else {
-      // alert("data belum ada");
-      setPlaylist([...playlist, uri]);
+      setSelectedTracks([...selectedTracks, uri]);
     }
   };
   return (
-    <tbody>
-      <tr>
-        <td rowSpan="2">{id + 1}</td>
-        <td rowSpan="2">
-          <img src={track.album.images[2].url} alt="track" />
-        </td>
-        <td>{track.name}</td>
-        <td rowSpan="2">{track.album.type}</td>
-        <td rowSpan="2">{track.album.release_date}</td>
-        <td rowSpan="2">
-          <button onClick={handleButtonSelect} className={style['btn-select']}>
-            {isSelected ? 'Deselect' : 'Select'}
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>{track.artists[0].name}</td>
-      </tr>
-    </tbody>
+    <div className={style['wrapper-track-list']}>
+      <div className={style['track-number']}>
+        <p>{id + 1}</p>
+      </div>
+      <div className={style['track-image']}>
+        <img src={track.album?.images[2].url} alt={track.name} />
+      </div>
+      <div className={style['track-title']}>
+        <p>{track?.name}</p>
+      </div>
+      <div className={style['track-artist']}>
+        <p>{track.artists[0]?.name}</p>
+      </div>
+
+      <div className={style['track-duration']}>
+        {convertDuration(track?.duration_ms)}
+      </div>
+      <div className={style['track-action']}>
+        <button
+          onClick={(e) => handleButtonSelect(e)}
+          value={track?.uri}
+          className={style['btn-select']}
+        >
+          {selectedTracks.includes(track?.uri) ? 'Deselect' : 'Select'}
+        </button>
+      </div>
+    </div>
   );
 };
 

@@ -2,7 +2,10 @@
   background-color: #181818;
   min-height: 100vh;
 }
-
+h3 {
+  padding: 30px;
+  color: whitesmoke;
+}
 .search-bar {
   background-color: #181818;
   padding: 30px;

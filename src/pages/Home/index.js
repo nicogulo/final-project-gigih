@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect } from 'react';
 
-import style from "./home.module.css";
+// ?lib third party
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { loginAuthorizeSpotify } from "../../services/authSpotify";
+// ? services
+import { loginAuthorizeSpotify } from '../../services/authSpotify';
+import { getAccessTokenFromURL } from '../../services/authSpotify';
+import { getProfile } from '../../services/apiSpotify';
+
+// ? style import css
+import style from './home.module.css';
+
+// ! reducer area
+import { login, storeUserData } from '../../redux/userSlice';
 
 const Home = () => {
-  const HandleButtonLoginClick = () => {
-    loginAuthorizeSpotify();
-  };
+  let history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const { access_token } = getAccessTokenFromURL(window.location.hash);
+      dispatch(login(access_token));
+      getProfile(access_token).then((data) => dispatch(storeUserData(data)));
+      history.push('/create-playlist');
+    }
+  }, [dispatch, history]);
 
   return (
-    <div className={style["wrapper-home"]}>
-      <div className={style["banner"]}>
-        <h1>Mencari musik?</h1>
-        <p>Mulai mendengarkan rilis baru terbaik.</p>
-
-        <button onClick={HandleButtonLoginClick}>BUKA PEMUTAR WEB</button>
+    <div className={style['wrapper-home']}>
+      <div className={style['banner']}>
+        <h1>Web Music Player </h1>
+        <p>Make your life better with music</p>
+        <button onClick={loginAuthorizeSpotify}>PLEASE LOGIN FIRST</button>
       </div>
     </div>
   );

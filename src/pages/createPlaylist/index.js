@@ -1,32 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import TrackList from '../../components/trackList';
-import MessageNotFound from '../../components/messageNotFound';
-import Button from '../../components/button';
-import FormCreateNewPlaylist from '../../components/formCreateNewPlaylist';
-
-// ! redux area
+// ? lib third party
 import { useSelector, useDispatch } from 'react-redux';
-import { setToken } from '../../redux/tokenSlice';
 
+//  ? components
+import SearchBar from '../../components/searchBar';
+import FormCreateNewPlaylist from '../../components/formCreateNewPlaylist';
+import TrackList from '../../components/trackList';
+import TrackSkeleton from '../../components/trackSkeleton';
+import Navbar from '../../components/layouts/navbar';
+
+// ! reducer area
+import { storeTracksList } from '../../redux/trackListSlice';
+
+//  ? style import css
 import style from './createPlaylist.module.css';
 
-import { getAccessTokenFromURL } from '../../services/authSpotify';
 import {
-  getProfile,
   getSearchTracks,
   createNewPlaylist,
   storeTracksToNewPlaylist,
 } from '../../services/apiSpotify';
 
 export default function CreatePlaylist() {
-  const token = useSelector((state) => state.token.value);
+  // ? use data from redux store
+  const token = useSelector((state) => state.user.accessToken);
+  const userID = useSelector((state) => state.user.data.id);
+  const tracks = useSelector((state) => state.tracks.tracksList);
+
   const dispatch = useDispatch();
 
-  const [userID, setUserID] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const [search, setSearch] = useState('');
-  const [tracks, setTracks] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
+  const [selectedTracks, setSelectedTracks] = useState([]);
+
   const [postPlaylist, setPostPlaylist] = useState({
     name: '',
     description: '',
@@ -34,82 +42,81 @@ export default function CreatePlaylist() {
     collaborative: false,
   });
 
-  useEffect(() => {
-    if (window.location.hash) {
-      const { access_token } = getAccessTokenFromURL(window.location.hash);
-
-      dispatch(setToken(access_token));
-
-      getProfile(access_token).then((data) => setUserID(data.id));
-    }
-  }, [dispatch]);
-
   const buttonHandleSearch = () => {
+    setIsLoading(true);
     if (search === '') {
       alert('Search Cannot Be Empty');
     } else {
-      getSearchTracks(search, token).then((data) =>
-        setTracks(data.tracks.items)
-      );
+      getSearchTracks(search, token).then((data) => {
+        dispatch(storeTracksList(data.tracks.items));
+        setIsLoading(false);
+      });
+      setSearch('');
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (playlist.length <= 0) {
+    if (selectedTracks.length <= 0) {
       alert('You have to selected song first');
     } else {
       createNewPlaylist(userID, token, postPlaylist).then((newPlaylist) =>
-        storeTracksToNewPlaylist(newPlaylist.id, token, playlist).then((data) =>
-          console.log(data)
+        storeTracksToNewPlaylist(newPlaylist.id, token, selectedTracks).then(
+          (data) => console.log(data)
         )
       );
+
       alert('Create New Playlist Has Been Successfully');
+
       setPostPlaylist({
         name: '',
         description: '',
       });
-      setPlaylist([]);
+      setSelectedTracks([]);
     }
   };
 
   return (
-    <div className={style['wrapper-create-playlist']}>
-      <div className={style['search-bar']}>
-        <p>Let's find something for your new playlist</p>
-        <input
-          id="input-search"
-          onChange={(e) => setSearch(e.target.value)}
-          value={search}
-        />
-        <Button
-          onClick={buttonHandleSearch}
-          buttonStyle="btn-success"
-          buttonSize="btn-medium"
-          type="button"
-        >
-          Search
-        </Button>
-      </div>
-
-      {tracks.length > 0 ? (
-        <div className={style['list-track']}>
-          <FormCreateNewPlaylist
-            postPlaylist={postPlaylist}
-            setPostPlaylist={setPostPlaylist}
-            handleFormSubmit={handleFormSubmit}
-          />
-          <TrackList
-            tracks={tracks}
-            playlist={playlist}
-            setPlaylist={setPlaylist}
+    <div>
+      <Navbar />
+      <div className={style['wrapper-create-playlist']}>
+        <h3>Create Playlist</h3>
+        <div className={style['search-bar']}>
+          <SearchBar
+            search={search}
+            setSearch={setSearch}
+            buttonHandleSearch={buttonHandleSearch}
           />
         </div>
-      ) : (
-        <MessageNotFound search={search} />
-      )}
 
-      {/* <div className={style["form-create-playlist"]}></div> */}
+        <div className={style['list-track']}>
+          {isLoading ? (
+            <div>
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+            </div>
+          ) : (
+            <TrackList
+              tracks={tracks}
+              selectedTracks={selectedTracks}
+              setSelectedTracks={setSelectedTracks}
+            />
+          )}
+        </div>
+
+        <div className={style['form-create-playlist']}>
+          {selectedTracks.length > 0 && (
+            <FormCreateNewPlaylist
+              postPlaylist={postPlaylist}
+              setPostPlaylist={setPostPlaylist}
+              handleFormSubmit={handleFormSubmit}
+            />
+          )}
+        </div>
+      </div>
     </div>
   );
 }
