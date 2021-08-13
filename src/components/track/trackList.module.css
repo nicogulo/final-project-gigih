@@ -1,14 +1,64 @@
-.table {
-  width: 100%;
+.wrapper-track-list {
+  padding: 10px;
+  margin: 10px 0px;
+  /* background-color: ghostwhite; */
+  display: grid;
+  grid-template-columns: 40px 80px 3fr 1fr 1fr;
+  grid-template-rows: 30px 30px;
+  grid-template-areas:
+    "number image title  duration action"
+    "number image artist  duration action";
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+  color: whitesmoke;
+  border: 1px solid grey;
 }
 
-.table th {
-  border-bottom: 1px solid gainsboro;
-  text-align: left;
-  padding-bottom: 10px;
+.wrapper-track-list:hover {
+  background-color: black;
 }
 
-.table td {
-  padding-top: 10px;
-  padding-bottom: 5px;
+.track-number {
+  grid-area: number;
+  /* background-color: gray; */
+  justify-self: center;
+}
+
+.track-image {
+  grid-area: image;
+  /* background-color: gold; */
+}
+
+.track-title {
+  grid-area: title;
+  /* background-color: gray; */
+}
+.track-artist {
+  grid-area: artist;
+  /* background-color: gray; */
+}
+
+.track-duration {
+  grid-area: duration;
+  /* background-color: gray; */
+}
+.track-action {
+  grid-area: action;
+  /* background-color: gray; */
+}
+
+.track-action button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1db954;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.track-action button:hover {
+  background-color: green;
 }
