@@ -1,6 +1,6 @@
 import React from 'react';
 
-import convertDuration from '../../functions/convertDuration';
+import convertDuration from '../../../functions/convertDuration';
 
 import style from './trackList.module.css';
 

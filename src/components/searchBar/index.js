@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Button from "../button";
-import style from "./searchBar.module.css";
+import Button from '../button';
+import style from './searchBar.module.css';
 
 const SearchBar = ({ search, setSearch, buttonHandleSearch }) => {
   return (
-    <div className={style["wrapper-search-bar"]}>
+    <div className={style['wrapper-search-bar']}>
       <p>Lets find something for your new playlist</p>
       <input
         id="input-search"
@@ -19,6 +19,7 @@ const SearchBar = ({ search, setSearch, buttonHandleSearch }) => {
         buttonStyle="btn-success"
         buttonSize="btn-medium"
         type="button"
+        autoComplete="off"
       >
         Search
       </Button>

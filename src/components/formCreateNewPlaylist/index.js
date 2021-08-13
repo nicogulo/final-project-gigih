@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import style from "./form.module.css";
+import style from './form.module.css';
 
 const FormCreateNewPlaylist = ({
   postPlaylist,
@@ -13,7 +13,7 @@ const FormCreateNewPlaylist = ({
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className={style["form"]}>
+    <form onSubmit={handleFormSubmit} className={style['form']}>
       <label htmlFor="name">Name New Playlist</label>
       <input
         id="name"
@@ -31,7 +31,7 @@ const FormCreateNewPlaylist = ({
         value={postPlaylist.description}
         onChange={handleChange}
         rows="10"
-        cols="50"
+        cols="30"
       ></textarea>
       <button type="submit">Create New Playlist</button>
     </form>
