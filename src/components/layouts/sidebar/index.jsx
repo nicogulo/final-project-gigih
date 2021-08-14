@@ -26,11 +26,12 @@ const Sidebar = () => {
         w="100%"
         h="40px"
         alignItems="center"
+        color="#fff"
         onClick={() => {
           setNavbar(!navbar);
         }}
       >
-        <Image src={menuIcon} w="20px" mr="20px" ml="20px" color="#fff" />
+        <Image src={menuIcon} w="20px" mr="20px" ml="20px" />
         <Heading as="h3" size="md">
           {navbar ? '' : 'Spotify'}
         </Heading>
