@@ -1,13 +1,14 @@
 .wrapper-track-list {
   padding: 10px;
   margin: 10px 0px;
-  background-color: whitesmoke;
+  color: #fff;
+  background-color: #121212;
   display: grid;
   grid-template-columns: 40px 80px 3fr 1fr 1fr;
   grid-template-rows: 30px 30px;
   grid-template-areas:
-    "number image title  duration action"
-    "number image artist  duration action";
+    'number image title  duration action'
+    'number image artist  duration action';
   column-gap: 10px;
   row-gap: 10px;
 
