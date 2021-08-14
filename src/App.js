@@ -7,7 +7,7 @@ import PrivateRoute from './components/router/privateRouter';
 import Home from './pages/Home';
 import CreatePlaylist from './pages/CreatePlaylist';
 
-// ? lib third partyy
+// ? lib third party
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';

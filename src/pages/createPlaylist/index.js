@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 //  ? components
 // import Navbar from "components/layouts/navbar";
-import SearchBar from 'components/searchBar';
-import TrackList from 'components/trackList';
-import TrackSkeleton from 'components/trackSkeleton';
+import SearchBar from '../../components/searchBar';
+import TrackList from '../../components/trackList';
+import TrackSkeleton from '../../components/trackSkeleton';
 
 // ? lib third party
 import { useSelector, useDispatch } from 'react-redux';

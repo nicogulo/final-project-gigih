@@ -5,8 +5,11 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 // ? api
-import { loginAuthorizeSpotify, getAccessTokenFromURL } from 'api/authSpotify';
-import { getProfile } from 'api/apiSpotify';
+import {
+  loginAuthorizeSpotify,
+  getAccessTokenFromURL,
+} from '../../api/authSpotify';
+import { getProfile } from '../../api/apiSpotify';
 
 // ! reducer area
 import { login, storeUserData } from 'redux/userSlice';
