@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Flex, Image, Heading } from "@chakra-ui/react";
+import { Flex, Image, Heading } from '@chakra-ui/react';
 
-import menuIcon from "assets/icons/menu.svg";
+import menuIcon from 'assets/icons/menu.svg';
 
-import NavbarItem from "components/layouts/sidebarItem";
+import NavbarItem from 'components/layouts/sidebarItem';
 
-import style from "./sidebar.module.css";
+import style from './sidebar.module.css';
 
 const Sidebar = () => {
   const [navbar, setNavbar] = useState(true);
@@ -14,13 +14,13 @@ const Sidebar = () => {
     <Flex
       h="auto"
       pos="sticky"
-      backgroundColor="yellow.500"
+      backgroundColor="gray.800"
       flexDir="column"
       alignItems="center"
-      className={navbar ? style["navbar"] : style["navbar-full"]}
+      className={navbar ? style['navbar'] : style['navbar-full']}
     >
       <Flex
-        className={style["navbar-trigger"]}
+        className={style['navbar-trigger']}
         mt={8}
         w="100%"
         h="40px"
@@ -31,7 +31,7 @@ const Sidebar = () => {
       >
         <Image src={menuIcon} w="20px" mr="20px" ml="20px" />
         <Heading as="h3" size="md">
-          {navbar ? "" : "Spotify"}
+          {navbar ? '' : 'Spotify'}
         </Heading>
       </Flex>
       {/* ------------------------ */}
