@@ -17,9 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <Flex bg="orange.300" alignItems="center" width="100vw">
+    <Flex alignItems="center" width="100vw">
       <Box p="4">
-        <Heading as="h3" size="lg" color="black">
+        <Heading as="h3" size="lg" color="#b3b3b3">
           Spotify
         </Heading>
       </Box>
