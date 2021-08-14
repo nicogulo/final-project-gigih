@@ -102,7 +102,14 @@ export default function CreatePlaylist() {
 
   return (
     <>
-      <Flex w="90%" h="100%" minH="100vh" flexDir="column" bgColor="gray.900">
+      <Flex
+        w="90%"
+        h="100%"
+        minH="100vh"
+        flexDir="column"
+        bgColor="#212121"
+        color="#b3b3b3"
+      >
         <Flex p="10" flexDir="column">
           <Heading as="h4" size="md">
             Search
