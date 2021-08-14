@@ -111,6 +111,7 @@ export default function CreatePlaylist() {
             flexDir="row"
             alignItems="flex-start"
             justifyContent="space-between"
+            bgColor="gray.900"
           >
             <SearchBar
               search={search}
