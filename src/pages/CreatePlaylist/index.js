@@ -102,7 +102,7 @@ export default function CreatePlaylist() {
 
   return (
     <>
-      <Flex w="90%" h="100%" minH="100vh" flexDir="column">
+      <Flex w="90%" h="100%" minH="100vh" flexDir="column" bgColor="gray.900">
         <Flex p="10" flexDir="column">
           <Heading as="h4" size="md">
             Search
@@ -111,7 +111,6 @@ export default function CreatePlaylist() {
             flexDir="row"
             alignItems="flex-start"
             justifyContent="space-between"
-            bgColor="gray.900"
           >
             <SearchBar
               search={search}
