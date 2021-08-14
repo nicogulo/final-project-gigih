@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
 // ? lib third party
-import { Flex, Box, Spacer, Button, Heading } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Flex, Box, Spacer, Button, Heading } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 // ? reducer
-import { logout } from "redux/userSlice";
+import { logout } from '../../../redux/userSlice';
 const Navbar = () => {
   let history = useHistory();
   const dispatch = useDispatch();
 
   const handleLogoutClick = () => {
     dispatch(logout());
-    history.push("/");
+    history.push('/');
   };
 
   return (

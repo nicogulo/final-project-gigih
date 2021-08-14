@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // ? style import css
-import { Flex } from "@chakra-ui/react";
+import { Flex } from '@chakra-ui/react';
 
-import Sidebar from "../sidebar";
+import Sidebar from '../sidebar';
 
 const Layout = ({ component: Component }) => {
   return (
