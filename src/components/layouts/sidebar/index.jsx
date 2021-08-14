@@ -15,6 +15,7 @@ const Sidebar = () => {
       h="auto"
       pos="sticky"
       backgroundColor="#121212"
+      color="#fff"
       flexDir="column"
       alignItems="center"
       className={navbar ? style['navbar'] : style['navbar-full']}
