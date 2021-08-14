@@ -30,7 +30,7 @@ const Sidebar = () => {
           setNavbar(!navbar);
         }}
       >
-        <Image src={menuIcon} w="20px" mr="20px" ml="20px" />
+        <Image src={menuIcon} w="20px" mr="20px" ml="20px" color="#fff" />
         <Heading as="h3" size="md">
           {navbar ? '' : 'Spotify'}
         </Heading>
