@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './userSlice';
-import trackListSlice from './trackListSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./userSlice";
+import trackListSlice from "./trackListSlice";
 
 export default configureStore({
   reducer: {

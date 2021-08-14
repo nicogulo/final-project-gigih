@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   tracksList: [],
 };
 
 export const trackListSlice = createSlice({
-  name: 'tracks',
+  name: "tracks",
   initialState,
   reducers: {
     storeTracksList: (state, action) => {
