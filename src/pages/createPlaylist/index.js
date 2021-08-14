@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 //  ? components
 // import Navbar from "components/layouts/navbar";
-import SearchBar from "components/searchBar";
-import TrackList from "components/trackList";
-import TrackSkeleton from "components/trackSkeleton";
+import SearchBar from 'components/searchBar';
+import TrackList from 'components/trackList';
+import TrackSkeleton from 'components/trackSkeleton';
 
 // ? lib third party
-import { useSelector, useDispatch } from "react-redux";
-import toast, { Toaster } from "react-hot-toast";
+import { useSelector, useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 import {
   Flex,
   Heading,
@@ -26,17 +26,17 @@ import {
   ModalCloseButton,
   ModalFooter,
   useDisclosure,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
 // ? api
 import {
   getSearchTracks,
   createNewPlaylist,
   storeTracksToNewPlaylist,
-} from "api/apiSpotify";
+} from 'api/apiSpotify';
 
 // ! reducer area
-import { storeTracksList } from "redux/trackListSlice";
+import { storeTracksList } from 'redux/trackListSlice';
 
 export default function CreatePlaylist() {
   const token = useSelector((state) => state.user.accessToken);
@@ -46,12 +46,12 @@ export default function CreatePlaylist() {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [selectedTracks, setSelectedTracks] = useState([]);
 
   const [postPlaylist, setPostPlaylist] = useState({
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     public: false,
     collaborative: false,
   });
@@ -68,21 +68,21 @@ export default function CreatePlaylist() {
 
   const buttonHandleSearch = () => {
     setIsLoading(true);
-    if (search === "") {
+    if (search === '') {
       toast.error("Search can't be empty");
     } else {
       getSearchTracks(search, token).then((data) => {
         dispatch(storeTracksList(data.tracks.items));
         setIsLoading(false);
       });
-      setSearch("");
+      setSearch('');
     }
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (selectedTracks.length <= 0) {
-      toast.error("You have to selected song first");
+      toast.error('You have to selected song first');
     } else {
       createNewPlaylist(userID, token, postPlaylist).then((newPlaylist) =>
         storeTracksToNewPlaylist(newPlaylist.id, token, selectedTracks).then(
@@ -90,11 +90,11 @@ export default function CreatePlaylist() {
         )
       );
 
-      toast.success("Create New Playlist Has Been Successfully.");
+      toast.success('Create New Playlist Has Been Successfully.');
 
       setPostPlaylist({
-        name: "",
-        description: "",
+        name: '',
+        description: '',
       });
       setSelectedTracks([]);
     }
