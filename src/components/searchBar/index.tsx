@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, Button, Input, InputGroup, Text } from "@chakra-ui/react";
+import React from 'react';
+import { Flex, Button, Input, InputGroup, Text } from '@chakra-ui/react';
 
 type SearchTrack = {
   search: string;

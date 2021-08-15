@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Track from "./trackItem";
+import Track from './trackItem';
 
 const TrackList = ({ tracks, selectedTracks, setSelectedTracks }) => {
   return tracks.map((track, id) => {

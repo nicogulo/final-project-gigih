@@ -10,11 +10,11 @@ export const Routers: typeRouters[] = [
   {
     path: '/profile',
     exact: true,
-    component: lazy(() => import('pages/profile')),
+    component: lazy(() => import('pages/Profile')),
   },
   {
     path: '/create-playlist',
     exact: true,
-    component: lazy(() => import('pages/createPlaylist')),
+    component: lazy(() => import('pages/CreatePlaylist')),
   },
 ];

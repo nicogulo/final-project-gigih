@@ -10,7 +10,10 @@ import Navbar from 'components/layouts/navbar';
 
 // ? lib third party
 import { useAppSelector, useAppDispatch } from 'redux/store';
-import { Flex, Heading, Button, useDisclosure } from '@chakra-ui/react';
+import { Flex, Heading, Button } from '@chakra-ui/react';
+import { useDisclosure } from '@chakra-ui/hooks';
+
+import toast, { Toaster } from 'react-hot-toast';
 
 // ? api
 import {
@@ -42,10 +45,10 @@ export default function CreatePlaylist() {
     description: '',
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setPostPlaylist({ ...postPlaylist, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setPostPlaylist({ ...postPlaylist, [name]: value });
+  // };
 
   const buttonHandleSearch = () => {
     setIsLoading(true);

@@ -10,12 +10,12 @@ import {
 } from 'react-router-dom';
 
 // ?components
-import Login from 'pages/login';
+import Home from 'pages/Home';
 import PrivateRoute from './privateRouter';
 import { Routers } from './root.router';
 
 const ListRouter = () => {
-  const isLogin = useAppSelector((state) => state.auth.isAuthenticated);
+  const isHome = useAppSelector((state) => state.auth.isAuthenticated);
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Router>
@@ -24,7 +24,7 @@ const ListRouter = () => {
             exact
             path="/"
             render={() =>
-              isLogin ? <Redirect to="/create-playlist" /> : <Login />
+              isHome ? <Redirect to="/create-playlist" /> : <Home />
             }
           />
           {Routers.map((route) => (
