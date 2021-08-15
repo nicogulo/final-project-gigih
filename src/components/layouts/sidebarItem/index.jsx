@@ -1,11 +1,8 @@
 import React from 'react';
 
-import { Flex, Image, Text } from '@chakra-ui/react';
-
+import { Flex, Text } from '@chakra-ui/react';
+import { AddIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import style from './sidebarItem.module.css';
-
-import addIcon from 'assets/icons/add.svg';
-import logoutIcon from 'assets/icons/logout.svg';
 
 const sidebarItem = ({ navbar }) => {
   return (
@@ -17,7 +14,7 @@ const sidebarItem = ({ navbar }) => {
         h="40px"
         alignItems="center"
       >
-        <Image src={addIcon} w="20px" mr="20px" ml="20px" color="#fff" />
+        <AddIcon w="20px" mr="20px" ml="20px" color="#fff" />
         <Text fontSize="14px">{navbar ? '' : 'Create Playlist'}</Text>
       </Flex>
       <Flex
@@ -27,7 +24,7 @@ const sidebarItem = ({ navbar }) => {
         h="40px"
         alignItems="center"
       >
-        <Image src={logoutIcon} w="20px" mr="20px" ml="20px" color="#fff" />
+        <ArrowRightIcon w="20px" mr="20px" ml="20px" color="#fff" />
         <Text fontSize="14px">{navbar ? '' : 'Logout'}</Text>
       </Flex>
     </>

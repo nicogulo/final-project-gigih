@@ -5,14 +5,11 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 // ? api
-import {
-  loginAuthorizeSpotify,
-  getAccessTokenFromURL,
-} from '../../api/authSpotify';
-import { getProfile } from '../../api/apiSpotify';
+import { loginAuthorizeSpotify, getAccessTokenFromURL } from 'api/authSpotify';
+import { getProfile } from 'api/apiSpotify';
 
 // ! reducer area
-import { login, storeUserData } from 'redux/userSlice';
+import { login, storeUser } from 'redux/authSlice';
 
 // ? style import css
 import { Flex, Heading, Text, Button } from '@chakra-ui/react';
@@ -27,7 +24,7 @@ const Home = () => {
     if (window.location.hash) {
       const { access_token } = getAccessTokenFromURL(window.location.hash);
       dispatch(login(access_token));
-      getProfile(access_token).then((data) => dispatch(storeUserData(data)));
+      getProfile(access_token).then((data) => dispatch(storeUser(data)));
       history.push('/create-playlist');
     }
   }, [dispatch, history]);

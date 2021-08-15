@@ -1,4 +1,4 @@
-const convertTrackTitle = (title) => {
+const convertTrackTitle = (title: string): string => {
   if (title.length > 25) {
     return title.substring(0, 25) + '...';
   }

@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <Flex alignItems="center" width="100vw">
       <Box p="4">
-        <Heading as="h3" size="lg" color="#b3b3b3">
+        <Heading as="h3" size="lg" color="#fff">
           Spotify
         </Heading>
       </Box>

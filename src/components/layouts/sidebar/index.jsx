@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import { Flex, Image, Heading } from '@chakra-ui/react';
+import { Flex, Heading } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
-import menuIcon from 'assets/icons/menu.svg';
+// import menuIcon from 'assets/icons/menu.svg';
 
 import NavbarItem from 'components/layouts/sidebarItem';
 
@@ -31,12 +32,12 @@ const Sidebar = () => {
           setNavbar(!navbar);
         }}
       >
-        <Image src={menuIcon} w="20px" mr="20px" ml="20px" />
+        <HamburgerIcon color="#fff" />
         <Heading as="h3" size="md">
           {navbar ? '' : 'Spotify'}
         </Heading>
       </Flex>
-      {/* ------------------------ */}
+
       <NavbarItem navbar={navbar} active />
     </Flex>
   );
