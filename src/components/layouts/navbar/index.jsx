@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <Flex alignItems="center" width="100vw">
+    <Flex alignItems="center" width="100vw" bgColor="#121212">
       <Box p="4">
         <Heading as="h3" size="lg" color="#fff">
           Spotify
@@ -25,10 +25,12 @@ const Navbar = () => {
       </Box>
       <Spacer />
       <Box p="4">
-        <Button size="sm">Profile</Button>
+        <Button size="sm" bgColor="#1db954">
+          Profile
+        </Button>
       </Box>
       <Box p="4">
-        <Button onClick={handleLogoutClick} size="sm">
+        <Button onClick={handleLogoutClick} size="sm" bgColor="#1db954">
           Logout
         </Button>
       </Box>
