@@ -93,7 +93,7 @@ export default function CreatePlaylist() {
         minH="100vh"
         flexDir="column"
         bgColor="#212121"
-        color="#b3b3b3"
+        color="#fff"
       >
         <Navbar />
         <Flex p="10" flexDir="column">
@@ -114,7 +114,7 @@ export default function CreatePlaylist() {
               width={200}
               alignSelf="flex-end"
               onClick={onOpen}
-              colorScheme="green"
+              bgColor="#1db954"
               isDisabled={selectedTracks.length > 0 ? false : true}
             >
               Create Playlist

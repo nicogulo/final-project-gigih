@@ -29,6 +29,8 @@ const SearchBar = ({ search, setSearch, buttonHandleSearch }: SearchTrack) => {
           onClick={buttonHandleSearch}
           size="md"
           width="150px"
+          bgColor="#1db954"
+          color="#fff"
         >
           Search
         </Button>

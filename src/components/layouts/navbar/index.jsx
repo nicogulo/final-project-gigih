@@ -25,12 +25,17 @@ const Navbar = () => {
       </Box>
       <Spacer />
       <Box p="4">
-        <Button size="sm" bgColor="#1db954">
+        <Button size="sm" bgColor="#1db954" color="#fff">
           Profile
         </Button>
       </Box>
       <Box p="4">
-        <Button onClick={handleLogoutClick} size="sm" bgColor="#1db954">
+        <Button
+          onClick={handleLogoutClick}
+          size="sm"
+          bgColor="#1db954"
+          color="#fff"
+        >
           Logout
         </Button>
       </Box>
