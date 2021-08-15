@@ -9,7 +9,8 @@ import Modal from 'components/modal';
 import Navbar from 'components/layouts/navbar';
 
 // ? lib third party
-import { useAppSelector, useAppDispatch } from '../../redux/store';
+import { useAppSelector } from '../../redux/store';
+import { useAppDispatch } from '../../redux/store';
 import { Flex, Heading, Button } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/hooks';
 
