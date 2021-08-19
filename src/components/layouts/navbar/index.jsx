@@ -1,15 +1,24 @@
 import React from 'react';
 
-// ? lib third party
-import { Flex, Box, Spacer, Button, Heading } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  Spacer,
+  Button,
+  Heading,
+  Avatar,
+  Text,
+} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-// ? reducer
+import { useAppSelector } from 'store';
 import { logout } from '../../../redux/authSlice';
 const Navbar = () => {
   let history = useHistory();
   const dispatch = useDispatch();
+  const userName = useAppSelector((state) => state.auth.user?.display_name);
+  const userImage = useAppSelector((state) => state.auth.user?.images[0].url);
 
   const handleLogoutClick = () => {
     dispatch(logout());
@@ -26,7 +35,8 @@ const Navbar = () => {
       <Spacer />
       <Box p="4">
         <Button size="sm" bgColor="#1db954" color="#fff">
-          Profile
+          <Text fontSize="sm">{userName}</Text>
+          <Avatar src={userImage} size="sm" />
         </Button>
       </Box>
       <Box p="4">
