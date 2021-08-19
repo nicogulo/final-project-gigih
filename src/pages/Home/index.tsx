@@ -57,6 +57,7 @@ const Home = () => {
         width="200px"
         bg="#1db954"
         type="button"
+        style={{ borderRadius: 30 }}
       >
         Please Login First
       </Button>

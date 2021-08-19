@@ -12,6 +12,7 @@ import Navbar from 'components/layouts/navbar';
 import { useAppSelector } from '../../store';
 import { useAppDispatch } from '../../store';
 import { Flex, Heading, Button } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/hooks';
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -117,6 +118,7 @@ export default function CreatePlaylist() {
               bgColor="#1db954"
               isDisabled={selectedTracks.length > 0 ? false : true}
             >
+              <AddIcon />
               Create Playlist
             </Button>
           </Flex>

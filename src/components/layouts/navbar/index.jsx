@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <Flex flexDir="column" alignItems="center" width="100vw" bgColor="#121212">
+    <Flex alignItems="center" width="100vw" bgColor="#121212">
       <Box p="4">
         <Heading as="h3" size="lg" color="#fff">
           Spotify
@@ -34,7 +34,12 @@ const Navbar = () => {
       </Box>
       <Spacer />
       <Box p="4">
-        <Button size="sm" bgColor="#1db954" color="#fff">
+        <Button
+          size="sm"
+          bgColor="#212121"
+          color="#fff"
+          style={{ borderRadius: 30 }}
+        >
           <Text fontSize="sm">{userName}</Text>
           <Avatar src={userImage} size="sm" />
         </Button>
@@ -45,6 +50,7 @@ const Navbar = () => {
           size="sm"
           bgColor="#1db954"
           color="#fff"
+          style={{ borderRadius: 30 }}
         >
           Logout
         </Button>

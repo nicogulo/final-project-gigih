@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Button, Input, InputGroup, Text } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 
 type SearchTrack = {
   search: string;
@@ -32,6 +33,7 @@ const SearchBar = ({ search, setSearch, buttonHandleSearch }: SearchTrack) => {
           bgColor="#1db954"
           color="#fff"
         >
+          <SearchIcon mr={2} />
           Search
         </Button>
       </InputGroup>
