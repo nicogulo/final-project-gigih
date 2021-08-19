@@ -12,7 +12,7 @@ import { getProfile } from 'api/apiSpotify';
 import { login, storeUser } from 'store/authSlice';
 
 // ? style import css
-import { Flex, Heading, Text, Button } from '@chakra-ui/react';
+import { Flex, Heading, Text, Button, Center } from '@chakra-ui/react';
 
 import style from './home.module.css';
 
@@ -38,12 +38,17 @@ const Home = () => {
       justifyContent="center"
       className={style['wrapper-home']}
     >
-      <Heading as="h4" size="2xl">
-        HEAVEN = MUSIC
-      </Heading>
-
-      <Text>Make your life better with music</Text>
-      <Text mb={5}>flight to the imagination and life to everything.</Text>
+      <Center>
+        <Heading as="h4" size="2xl">
+          HEAVEN = MUSIC
+        </Heading>
+      </Center>
+      <Center>
+        <Text>Make your life better with music</Text>
+      </Center>
+      <Center>
+        <Text mb={5}>flight to the imagination and life to everything.</Text>
+      </Center>
       <Button
         className={style['btn-login']}
         id="btn-login"
