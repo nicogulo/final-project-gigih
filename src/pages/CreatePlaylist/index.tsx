@@ -9,8 +9,8 @@ import Modal from 'components/modal';
 import Navbar from 'components/layouts/navbar';
 
 // ? lib third party
-import { useAppSelector } from '../../redux/store';
-import { useAppDispatch } from '../../redux/store';
+import { useAppSelector } from '../../store';
+import { useAppDispatch } from '../../store';
 import { Flex, Heading, Button } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/hooks';
 
@@ -25,7 +25,7 @@ import {
 
 // ! reducer area
 
-import { setTracks } from 'redux/playlistSlice';
+import { setTracks } from 'store/playlistSlice';
 
 export default function CreatePlaylist() {
   const dispatch = useAppDispatch();

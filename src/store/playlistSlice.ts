@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { PlaylistState } from '../types/store';
+import { IPlaylistState } from 'types/store';
 
-const initialState: PlaylistState = {
+const initialState: IPlaylistState = {
   tracks: [],
   selectedTracks: [],
   form: {

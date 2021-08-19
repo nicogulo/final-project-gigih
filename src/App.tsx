@@ -1,13 +1,10 @@
 import React from 'react';
 
-// ? lib third party
 import { Provider } from 'react-redux';
 import { ChakraProvider } from '@chakra-ui/react';
 
-// ! redux store
-import store from 'redux/store';
+import store from './store';
 
-// ? routers
 import ListRouter from 'components/router';
 
 // ? css style

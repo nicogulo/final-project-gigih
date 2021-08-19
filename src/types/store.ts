@@ -1,12 +1,6 @@
 import { UserProfile, Track } from './spotify';
 
-export interface AuthState {
-  isAuthenticated: boolean;
-  accessToken: string;
-  user: UserProfile | null;
-}
-
-export interface PlaylistState {
+export interface IPlaylistState {
   tracks: Track[];
   selectedTracks: string[];
   form: {
@@ -15,6 +9,8 @@ export interface PlaylistState {
   };
 }
 
-export interface ITracks {
-  tracks: Track[];
+export interface IAuthState {
+  isAuthenticated: boolean;
+  accessToken: string;
+  user: UserProfile | null;
 }

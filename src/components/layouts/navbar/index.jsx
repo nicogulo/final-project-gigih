@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { useAppSelector } from 'store';
-import { logout } from '../../../redux/authSlice';
+import { logout } from '../../../store/authSlice';
 const Navbar = () => {
   let history = useHistory();
   const dispatch = useDispatch();

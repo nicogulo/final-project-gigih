@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 
 // ? lib third party
-import { useAppSelector } from 'redux/store';
+import { useAppSelector } from 'store';
 import {
   BrowserRouter as Router,
   Switch,

@@ -9,7 +9,7 @@ import { loginAuthorizeSpotify, getAccessTokenFromURL } from 'api/authSpotify';
 import { getProfile } from 'api/apiSpotify';
 
 // ! reducer area
-import { login, storeUser } from 'redux/authSlice';
+import { login, storeUser } from 'store/authSlice';
 
 // ? style import css
 import { Flex, Heading, Text, Button } from '@chakra-ui/react';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useAppSelector } from 'redux/store';
+import { useAppSelector } from 'store';
 
 const PrivateRoute = ({ ...routerProps }) => {
   const { isAuthenticated } = useAppSelector((state) => state.auth);
