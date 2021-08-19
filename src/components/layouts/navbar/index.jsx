@@ -40,8 +40,8 @@ const Navbar = () => {
           color="#fff"
           style={{ borderRadius: 30 }}
         >
+          <Avatar src={userImage} size="sm" mr={2} />
           <Text fontSize="sm">{userName}</Text>
-          <Avatar src={userImage} size="sm" />
         </Button>
       </Box>
       <Box p="4">

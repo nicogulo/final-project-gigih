@@ -118,7 +118,7 @@ export default function CreatePlaylist() {
               bgColor="#1db954"
               isDisabled={selectedTracks.length > 0 ? false : true}
             >
-              <AddIcon />
+              <AddIcon mr={2} />
               Create Playlist
             </Button>
           </Flex>
