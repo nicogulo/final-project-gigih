@@ -19,13 +19,13 @@ In this repository, there are several main goals:
 
 > ### Setup Project
 >
-> The first clone this repo `https://github.com/nicogulo/generasi-gigih-homework.git` and then install all packages with `npm install`.
+> The first clone this repo `https://github.com/nicogulo/generasi-gigih-homework.git` and then install all packages with `npm install` or `yarn install`
 
 > ### Setup Project
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start` or `yarn start`
 
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
@@ -33,17 +33,7 @@ Open http://localhost:3000 to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `npm test` or `yarn test`
 
 Launches the test runner in the interactive watch mode.
 See the section about
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
